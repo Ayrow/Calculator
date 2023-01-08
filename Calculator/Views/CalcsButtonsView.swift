@@ -77,9 +77,7 @@ struct CalcsButtonsView: View {
                     ForEach(rowOfCalcButtonsModel.row) {
                         calcButtonModel in
                         Button(action: {
-                            //Logic takes place here
-                            print("Button pressed")
-                            buttonPressed(calcButton: calcButtonModel.calcButton)
+                                       buttonPressed(calcButton: calcButtonModel.calcButton)
                         }, label: {
                             ButtonView(
                                 calcButton: calcButtonModel.calcButton,
@@ -98,9 +96,11 @@ struct CalcsButtonsView: View {
     func buttonPressed(calcButton: CalcButton) {
         // Logic
         switch calcButton {
+            
         case .clear:
             currentComputation = ""
             mainResult = "0"
+            
         case .equal, .negative:
             if !currentComputation.isEmpty {
                 if !lastCharIsAnOperator(str: currentComputation) {
@@ -112,14 +112,42 @@ struct CalcsButtonsView: View {
                     }
                 }
             }
+            
         case .decimal:
-            print("decimal")
+            if let lastOccurenceOfDecimal = currentComputation.lastIndex(of: ".") {
+                if lastCharIsDigit(str: currentComputation) {
+                    let startIndex = currentComputation.index(lastOccurenceOfDecimal, offsetBy: 1)
+                    let endIndex = currentComputation.endIndex
+                    
+                    let range = startIndex..<endIndex
+                    
+                    let rightSubString = String(currentComputation[range])
+                    
+                    
+                    // Only have digits to the right ".", do not add another decimal point
+                    //Otherwise we can another decimal point
+                    
+                    if Int(rightSubString) == nil && !rightSubString.isEmpty {
+                        currentComputation += "."
+                    }
+                    
+                }
+            } else {
+                if currentComputation.isEmpty {
+                    currentComputation += "0."
+                } else if lastCharIsDigit(str: currentComputation) {
+                    currentComputation += "."
+                }
+            }
+            
         case .percent:
             if lastCharIsDigit(str: currentComputation) {
                 appendToCurrentComputation(calcButton: calcButton)
             }
+            
         case .undo:
             currentComputation = String(currentComputation.dropLast())
+            
         case .add, .subtract, .divide, .multiply:
             if lastCharIsDigitOrPercent(str: currentComputation) {
                 appendToCurrentComputation(calcButton: calcButton)
