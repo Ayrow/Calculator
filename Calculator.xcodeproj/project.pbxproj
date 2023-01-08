@@ -10,8 +10,8 @@
 		949AF413296AD58A00024FB1 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AF412296AD58A00024FB1 /* Enumerations.swift */; };
 		949AF415296AD97F00024FB1 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AF414296AD97F00024FB1 /* ButtonView.swift */; };
 		949AF417296AFFD100024FB1 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AF416296AFFD100024FB1 /* StringHelperFunctions.swift */; };
+		949AF41B296B121500024FB1 /* iPadSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AF41A296B121500024FB1 /* iPadSupport.swift */; };
 		94F1ECAE29699A5900DEDBA5 /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1ECAD29699A5900DEDBA5 /* CalculatorApp.swift */; };
-		94F1ECB029699A5900DEDBA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1ECAF29699A5900DEDBA5 /* ContentView.swift */; };
 		94F1ECB229699A5A00DEDBA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F1ECB129699A5A00DEDBA5 /* Assets.xcassets */; };
 		94F1ECB529699A5A00DEDBA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F1ECB429699A5A00DEDBA5 /* Preview Assets.xcassets */; };
 		94F1ECBC2969B37400DEDBA5 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1ECBB2969B37400DEDBA5 /* ColorConstants.swift */; };
@@ -25,9 +25,9 @@
 		949AF412296AD58A00024FB1 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		949AF414296AD97F00024FB1 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		949AF416296AFFD100024FB1 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
+		949AF41A296B121500024FB1 /* iPadSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadSupport.swift; sourceTree = "<group>"; };
 		94F1ECAA29699A5900DEDBA5 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1ECAD29699A5900DEDBA5 /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
-		94F1ECAF29699A5900DEDBA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		94F1ECB129699A5A00DEDBA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94F1ECB429699A5A00DEDBA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		94F1ECBB2969B37400DEDBA5 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
@@ -48,6 +48,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		949AF418296B11B100024FB1 /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				949AF416296AFFD100024FB1 /* StringHelperFunctions.swift */,
+			);
+			path = HelperFunctions;
+			sourceTree = "<group>";
+		};
+		949AF419296B11F100024FB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				949AF41A296B121500024FB1 /* iPadSupport.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		94F1ECA129699A5900DEDBA5 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +83,11 @@
 		94F1ECAC29699A5900DEDBA5 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				949AF419296B11F100024FB1 /* Extensions */,
+				949AF418296B11B100024FB1 /* HelperFunctions */,
 				94F1ECC02969B70400DEDBA5 /* Constants */,
 				94F1ECBD2969B6B800DEDBA5 /* Views */,
 				94F1ECAD29699A5900DEDBA5 /* CalculatorApp.swift */,
-				94F1ECAF29699A5900DEDBA5 /* ContentView.swift */,
 				94F1ECB129699A5A00DEDBA5 /* Assets.xcassets */,
 				94F1ECB329699A5A00DEDBA5 /* Preview Content */,
 			);
@@ -89,8 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				94F1ECBE2969B6D400DEDBA5 /* MainCalculatorView.swift */,
-				949AF416296AFFD100024FB1 /* StringHelperFunctions.swift */,
-				949AF412296AD58A00024FB1 /* Enumerations.swift */,
 				949AF414296AD97F00024FB1 /* ButtonView.swift */,
 				94F1ECC52969BA8C00DEDBA5 /* CalcsButtonsView.swift */,
 				94F1ECC32969B8FA00DEDBA5 /* ComputationView.swift */,
@@ -102,6 +117,7 @@
 		94F1ECC02969B70400DEDBA5 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				949AF412296AD58A00024FB1 /* Enumerations.swift */,
 				94F1ECBB2969B37400DEDBA5 /* ColorConstants.swift */,
 			);
 			path = Constants;
@@ -177,10 +193,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94F1ECB029699A5900DEDBA5 /* ContentView.swift in Sources */,
 				94F1ECBF2969B6D400DEDBA5 /* MainCalculatorView.swift in Sources */,
 				94F1ECC62969BA8C00DEDBA5 /* CalcsButtonsView.swift in Sources */,
 				94F1ECAE29699A5900DEDBA5 /* CalculatorApp.swift in Sources */,
+				949AF41B296B121500024FB1 /* iPadSupport.swift in Sources */,
 				94F1ECBC2969B37400DEDBA5 /* ColorConstants.swift in Sources */,
 				94F1ECC42969B8FA00DEDBA5 /* ComputationView.swift in Sources */,
 				94F1ECC22969B83F00DEDBA5 /* SunMoonView.swift in Sources */,
