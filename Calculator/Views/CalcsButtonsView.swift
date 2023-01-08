@@ -90,7 +90,8 @@ struct CalcsButtonsView: View {
             }
         }
         .padding()
-        .background(secondaryBackground.cornerRadius(20))
+        .background(secondaryBackground
+            .cornerRadius(20))
     }
     
     func buttonPressed(calcButton: CalcButton) {

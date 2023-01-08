@@ -27,10 +27,15 @@ struct MainCalculatorView: View {
                 Spacer()
                 
                 ComputationView(currentComputation: currentComputation, mainResult: mainResult)
+                    .padding(.horizontal, UIDevice.isIpad ? UIScreen.main.bounds.width * 0.1 : 0)
                 
                 Spacer()
                 
                 CalcsButtonsView(currentComputation: $currentComputation, mainResult: $mainResult)
+                
+                if UIDevice.isIpad {
+                    Spacer()
+                }
             }
         }
         .environment(\.colorScheme, lightMode ? .light : .dark)
