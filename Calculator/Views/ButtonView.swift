@@ -24,8 +24,8 @@ struct ButtonView: View {
             Text(text ?? "" )
             Image(systemName: systemImage ?? "")
         }
-        .font(.title2)
-        .fontWeight(.semibold)
+        .font(UIDevice.isIpad ? .largeTitle : .title2)
+        .fontWeight(UIDevice.isIpad ? .heavy : .semibold)
         .frame(width: buttonDim, height: buttonDim)
         .foregroundColor(fgColor)
         .background(bgColor)

@@ -16,6 +16,7 @@ let mainResult: String
                 Spacer()
                 Text(currentComputation)
                     .foregroundColor(foregroundDigits)
+                    .font(UIDevice.isIpad ? .largeTitle : .body)
                 .lineLimit(1)
             }.minimumScaleFactor(0.1)
             
