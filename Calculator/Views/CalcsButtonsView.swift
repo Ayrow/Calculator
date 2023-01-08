@@ -77,6 +77,7 @@ struct CalcsButtonsView: View {
                         Button(action: {
                             //Logic takes place here
                             print("Button pressed")
+                            buttonPressed(calcButton: calcButtonModel.calcButton)
                         }, label: {
                             ButtonView(
                                 calcButton: calcButtonModel.calcButton,
@@ -91,6 +92,38 @@ struct CalcsButtonsView: View {
         .padding()
         .background(secondaryBackground.cornerRadius(20))
     }
+    
+    func buttonPressed(calcButton: CalcButton) {
+        // Logic
+        switch calcButton {
+        case .clear:
+            currentComputation = ""
+            mainResult = "0"
+        case .equal, .negative:
+            print("eq/neg")
+        case .decimal:
+            print("decimal")
+        case .percent:
+            if lastCharIsDigit(str: currentComputation) {
+                appendToCurrentComputation(calcButton: calcButton)
+            }
+        case .undo:
+            currentComputation = String(currentComputation.dropLast())
+        case .add, .subtract, .divide, .multiply:
+            if lastCharIsDigitOrPercent(str: currentComputation) {
+                appendToCurrentComputation(calcButton: calcButton)
+            }
+        
+        default:
+            // Needs further implementation
+            appendToCurrentComputation(calcButton: calcButton)
+        }
+    }
+    
+    func appendToCurrentComputation(calcButton: CalcButton) {
+        currentComputation += calcButton.rawValue
+    }
+    
 }
 
 struct CalcsButtonsView_Previews: PreviewProvider {
